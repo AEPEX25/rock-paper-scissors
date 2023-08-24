@@ -1,110 +1,91 @@
 'use strict'
 
+//////////////////////////Rock Paper Scissors//////////////////////////////
+
 let playerScore = 0;
 let computerScore = 0;
-const choices = ['rock', 'paper', 'scissors'];
 
+const choices = ['rock','paper', 'scissors'];
 
-/////Player Selection/////
+///// Computer Choice /////
 
-const playerSelection = prompt('Choose between Rock, Paper and Scissors:').toLowerCase();
-console.log(playerSelection);
+function getComputerChoice () {
+  return choices[Math.floor(Math.random() * choices.length)];
+}  
 
-/////Computer Selection/////
+///// Player Choice /////
 
-function getComputerChoice (str) {
-    let computerRandomChoice = Math.floor(Math.random() * (str.length));
-    return str[computerRandomChoice];
-} 
+function getPlayerChoice () {
+  let input = prompt('Please, type Rock, Paper or Scissors').toLowerCase();
+  return input;
+}
 
-const computerSelection = getComputerChoice(choices);
-console.log (computerSelection);
+///// Check Winner /////
 
-/////Round Logic////
-
-function playRound (playerSelection, computerSelection){
-    if (playerSelection === computerSelection) {
-        console.log ('it\'s a tie!!! ');
-    } else if (computerSelection == 'rock') {
-        return ( (playerSelection == 'paper') ? win(): lose());
-    } else if (computerSelection == 'paper') {
-        return ( (playerSelection == 'scissors') ? win(): lose());
-    } else if (computerSelection == 'scissors') {
-        return ( (playerSelection == 'rock') ? win(): lose());
-    }
-};
-
-console.log (playRound (playerSelection,computerSelection));
-
-/////Wins and Loses////
-
-function win () {
-    playerScore++;
-    console.log(`You Win! ${playerSelection} beats ${computerSelection} - Score: ${playerScore} : ${computerScore} `);
-};
-
-function lose () {
-    computerScore++;
-    console.log(`You Lose! ${computerSelection} beats ${playerSelection} - Score: ${computerScore} : ${playerScore} `);
-};
-
-/////Game Logic////
-
-function game (round){
-  for (let i = 0; i > 5; i++){
-    playRound();
-  }
-  if(playerScore = 5){
-    alert('You wins the game'); 
+function checkWinner (playerSelection, computerSelection){
+ if(playerSelection === computerSelection) {
+    return 'tie';
+  } else if ((playerSelection === 'paper' && computerSelection === 'rock') || 
+             (playerSelection === 'rock' && computerSelection === 'scissors') ||
+             (playerSelection === 'scissors' && computerSelection === 'paper')){
+    return 'player';
   } else {
-    alert('You loses the game');
+    return 'computer';
   }
 }
 
+///// playRound /////
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-function playRound (playerSelection, computerSelection){
-    if (playerSelection === computerSelection) {
-        console.log ('it\'s a tie!!! ');
-    } else if (computerSelection == 'rock') {
-        return ( (playerSelection == 'paper') ? `You Win! ${playerSelection} beats ${computerSelection} ` : `You Lose! ${computerSelection} beats ${playerSelection}`);
-    } else if (computerSelection == 'paper') {
-        return ( (playerSelection == 'scissors') ? `You Win! ${playerSelection} beats ${computerSelection} ` :`You Lose! ${computerSelection} beats ${playerSelection}`);
-    } else if (computerSelection == 'scissors') {
-        return ( (playerSelection == 'rock') ? `You Win! ${playerSelection} beats ${computerSelection} ` : `You Lose! ${computerSelection} beats ${playerSelection}`);
-    }
+function playRound (playerSelection,computerSelection) {
+  let result = checkWinner(playerSelection, computerSelection);
+  if (result === 'tie') {
+    console.log('IT\'S A TIE!!!');
+  } else if (result === 'player'){
+    playerScore += 1;
+    console.log(`YOU WIN THE ROUND!!! ${playerSelection} beats ${computerSelection} - Current score: Player ( ${playerScore} ) : Computer ( ${computerScore} )`);
+  } else if ( result === 'computer' ){
+    computerScore += 1;
+    console.log(`YOU LOSE THE ROUND!!! ${computerSelection} beats ${playerSelection} - Current score: Computer ( ${computerScore} ) : Player ( ${playerScore} )`);
+}
 };
-*/
+
+///// playRound /////
+
+function game () {
+  for (let i = 0; i < 5; i++) {
+    let playerSelection = getPlayerChoice();
+    let computerSelection = getComputerChoice();
+    playRound(playerSelection,computerSelection);
+  }
+  if (playerScore === computerScore) {
+    console.log('IT\'S A TIE GAME!!!');
+  } else if (playerScore > computerScore) {
+    console.log(`YOU WIN THE GAME!!!! Final Score - Player ( ${playerScore} ) : Computer ( ${computerScore} )`);
+  } else {
+    console.log(`YOU LOSE THE GAME!! Final Score - Computer ( ${computerScore} ) : Player ( ${playerScore} )`);
+  }
+}
+
+game();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
