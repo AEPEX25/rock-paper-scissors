@@ -4,9 +4,9 @@
 
 ///// Elements Selections /////
 
-const div_rock = document.getElementById("rock");
-const div_paper = document.getElementById("paper");
-const div_scissors = document.getElementById("scissors");
+const btnRock = document.getElementById("rock");
+const btnPaper = document.getElementById("paper");
+const btnScissors = document.getElementById("scissors");
 
 ///// Score and choices /////
 
@@ -21,11 +21,21 @@ function getComputerChoice() {
 }
 
 ///// Player Choice /////
-
 function getPlayerChoice() {
-  let input = prompt("Please, type Rock, Paper or Scissors").toLowerCase();
-  return input;
+  btnRock.addEventListener("click", function () {
+    playRound("rock");
+  });
+
+  btnPaper.addEventListener("click", function () {
+    playRound("paper");
+  });
+
+  btnScissors.addEventListener("click", function () {
+    playRound("scissors");
+  });
 }
+
+getPlayerChoice();
 
 ///// Check Winner /////
 
@@ -46,6 +56,7 @@ function checkWinner(playerSelection, computerSelection) {
 ///// playRound /////
 
 function playRound(playerSelection, computerSelection) {
+  computerSelection = getComputerChoice();
   let result = checkWinner(playerSelection, computerSelection);
   if (result === "tie") {
     console.log("IT'S A TIE!!!");
@@ -62,9 +73,8 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-/*
 ///// playRound /////
-
+/*
 function game() {
   for (let i = 0; i < 5; i++) {
     let playerSelection = getPlayerChoice();
