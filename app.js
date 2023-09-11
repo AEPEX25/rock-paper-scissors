@@ -7,11 +7,17 @@
 const btnRock = document.getElementById("rock");
 const btnPaper = document.getElementById("paper");
 const btnScissors = document.getElementById("scissors");
+const div_playerScore = document.querySelector(".player-score");
+const div_computerScore = document.querySelector(".computer-score");
+let spanPlayerScore = document.querySelector(".p-score");
+let spanComputerScore = document.querySelector(".c-score");
 
-///// Score and choices /////
+///// Scores /////
 
 let playerScore = 0;
 let computerScore = 0;
+
+///// Choices /////
 
 const choices = ["rock", "paper", "scissors"];
 
@@ -53,6 +59,16 @@ function checkWinner(playerSelection, computerSelection) {
   }
 }
 
+function win() {
+  playerScore += 1;
+  spanPlayerScore.textContent = playerScore;
+}
+
+function lose() {
+  computerScore += 1;
+  spanComputerScore.textContent = computerScore;
+}
+
 ///// playRound /////
 
 function playRound(playerSelection, computerSelection) {
@@ -61,12 +77,12 @@ function playRound(playerSelection, computerSelection) {
   if (result === "tie") {
     console.log("IT'S A TIE!!!");
   } else if (result === "player") {
-    playerScore += 1;
+    win();
     console.log(
       `YOU WIN THE ROUND!!! ${playerSelection} beats ${computerSelection} - Current score: Player ( ${playerScore} ) : Computer ( ${computerScore} )`
     );
   } else if (result === "computer") {
-    computerScore += 1;
+    lose();
     console.log(
       `YOU LOSE THE ROUND!!! ${computerSelection} beats ${playerSelection} - Current score: Computer ( ${computerScore} ) : Player ( ${playerScore} )`
     );
