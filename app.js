@@ -30,15 +30,15 @@ function getComputerChoice() {
 ///// Player Choice /////
 function getPlayerChoice() {
   btnRock.addEventListener("click", function () {
-    playRound("rock");
+    game("rock");
   });
 
   btnPaper.addEventListener("click", function () {
-    playRound("paper");
+    game("paper");
   });
 
   btnScissors.addEventListener("click", function () {
-    playRound("scissors");
+    game("scissors");
   });
 }
 
@@ -63,11 +63,13 @@ function checkWinner(playerSelection, computerSelection) {
 function win() {
   playerScore += 1;
   spanPlayerScore.textContent = playerScore;
+  console.log(playerScore);
 }
 
 function lose() {
   computerScore += 1;
   spanComputerScore.textContent = computerScore;
+  console.log(computerScore);
 }
 
 ///// playRound /////
@@ -86,28 +88,13 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-///// playRound /////
-/*
-function game() {
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = getPlayerChoice();
-    let computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection);
-  }
-  if (playerScore === computerScore) {
-    console.log("IT'S A TIE GAME!!!");
-  } else if (playerScore > computerScore) {
-    console.log(
-      `YOU WIN THE GAME!!!! Final Score - Player ( ${playerScore} ) : Computer ( ${computerScore} )`
-    );
-  } else {
-    console.log(
-      `YOU LOSE THE GAME!! Final Score - Computer ( ${computerScore} ) : Player ( ${playerScore} )`
-    );
+///// Game /////
+
+function game(playerSelection) {
+  playRound(playerSelection);
+  if (playerScore === 5) {
+    displayResult.textContent = `YOU WIN THE GAME!!!! Final Score - Player ( ${playerScore} ) : Computer ( ${computerScore} )`;
+  } else if (computerScore === 5) {
+    displayResult.textContent = `YOU LOSE THE GAME!! Final Score - Computer ( ${computerScore} ) : Player ( ${playerScore} )`;
   }
 }
-
-game();
-
-holla *
-*/
