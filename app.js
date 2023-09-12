@@ -11,6 +11,7 @@ const div_playerScore = document.querySelector(".player-score");
 const div_computerScore = document.querySelector(".computer-score");
 let spanPlayerScore = document.querySelector(".p-score");
 let spanComputerScore = document.querySelector(".c-score");
+let displayResult = document.querySelector(".results");
 
 ///// Scores /////
 
@@ -75,17 +76,13 @@ function playRound(playerSelection, computerSelection) {
   computerSelection = getComputerChoice();
   let result = checkWinner(playerSelection, computerSelection);
   if (result === "tie") {
-    console.log("IT'S A TIE!!!");
+    displayResult.textContent = "IT'S A TIE!!!";
   } else if (result === "player") {
     win();
-    console.log(
-      `YOU WIN THE ROUND!!! ${playerSelection} beats ${computerSelection} - Current score: Player ( ${playerScore} ) : Computer ( ${computerScore} )`
-    );
+    displayResult.textContent = `YOU WIN THE ROUND!!! ${playerSelection} beats ${computerSelection} - Current score: Player ( ${playerScore} ) : Computer ( ${computerScore} )`;
   } else if (result === "computer") {
     lose();
-    console.log(
-      `YOU LOSE THE ROUND!!! ${computerSelection} beats ${playerSelection} - Current score: Computer ( ${computerScore} ) : Player ( ${playerScore} )`
-    );
+    displayResult.textContent = `YOU LOSE THE ROUND!!! ${computerSelection} beats ${playerSelection} - Current score: Computer ( ${computerScore} ) : Player ( ${playerScore} )`;
   }
 }
 
