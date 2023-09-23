@@ -4,27 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/4033a95928.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="app.js" defer></script>
     <title>Rock Papers and Scissors</title>
   </head>
   <body>
-    <div class="scores">
-      <div class="player-score">
-        <p>PLAYER: <span class="p-score">0</span></p>
+    <h1>Rock, Paper or Scissors</h1>
+    <div class="players">
+      <div class="player">
+        <div class="player-score">
+          <p>PLAYER: <span class="p-score">0</span></p>
+        </div>
+        <div class="choices-container">
+          <div class="choice" id="rock">
+            <i class="fa-regular fa-hand-back-fist fa-5x"></i>
+          </div>
+          <div class="choices" id="paper">
+            <i class="fa-regular fa-hand fa-5x"></i>
+          </div>
+          <div class="choices" id="scissors">
+            <i class="fa-regular fa-hand-scissors fa-5x"></i>
+          </div>
+        </div>
       </div>
-      <div class="computer-score">
-        <p>COMPUTER: <span class="c-score">0</span></p>
-      </div>
-    </div>
-    <div class="choices-container">
-      <div class="choice" id="rock">
-        <button>Rock</button>
-      </div>
-      <div class="choices" id="paper">
-        <button>Paper</button>
-      </div>
-      <div class="choices" id="scissors">
-        <button>Scissors</button>
+      <div class="computer">
+        <div class="computer-score">
+          <p>COMPUTER: <span class="c-score">0</span></p>
+        </div>
+        <div class="choices-container">
+          <div class="choice" id="rock">
+            <i class="fa-regular fa-hand-back-fist fa-5x"></i>
+          </div>
+          <div class="choices" id="paper">
+            <i class="fa-regular fa-hand fa-5x"></i>
+          </div>
+          <div class="choices" id="scissors">
+            <i class="fa-regular fa-hand-scissors fa-5x"></i>
+          </div>
+        </div>
       </div>
     </div>
     <div class="display-results">
