@@ -13,6 +13,8 @@ let spanPlayerScore = document.querySelector(".p-score");
 let spanComputerScore = document.querySelector(".c-score");
 let displayResult = document.querySelector(".results");
 const playerIconSelection = document.querySelector(".player-choices-container");
+const playAgainBtn = document.querySelector(".play-again-btn");
+console.log(playAgainBtn);
 
 ///// Scores /////
 
@@ -22,8 +24,6 @@ let computerScore = 0;
 ///// Choices /////
 
 const choices = ["rock", "paper", "scissors"];
-
-///// Mouseover animation /////
 
 ///// Computer Choice /////
 function getComputerChoice() {
@@ -82,10 +82,10 @@ function playRound(playerSelection, computerSelection) {
     displayResult.textContent = "IT'S A TIE!!!";
   } else if (result === "player") {
     win();
-    displayResult.textContent = `YOU WIN THE ROUND!!! \n${playerSelection} beats ${computerSelection} - Current score: Player ( ${playerScore} ) : Computer ( ${computerScore} )`;
+    displayResult.textContent = `YOU WIN THE ROUND!!! ${playerSelection} beats ${computerSelection}\n - Current score: Player ( ${playerScore} ) : Computer ( ${computerScore} )`;
   } else if (result === "computer") {
     lose();
-    displayResult.textContent = `YOU LOSE THE ROUND!!! \n${computerSelection} beats ${playerSelection} - Current score: Computer ( ${computerScore} ) : Player ( ${playerScore} )`;
+    displayResult.textContent = `YOU LOSE THE ROUND!!! ${computerSelection} beats ${playerSelection}\n - Current score: Computer ( ${computerScore} ) : Player ( ${playerScore} )`;
   }
 }
 
@@ -99,3 +99,15 @@ function game(playerSelection) {
     displayResult.textContent = `YOU LOSE THE GAME!! Final Score - Computer ( ${computerScore} ) : Player ( ${playerScore} )`;
   }
 }
+
+///// Play again btn /////
+
+const playAgain = function () {
+  playerScore = 0;
+  computerScore = 0;
+  spanPlayerScore.textContent = playerScore;
+  spanComputerScore.textContent = computerScore;
+  displayResult.textContent = "Results";
+};
+
+playAgainBtn.addEventListener("click", playAgain);
