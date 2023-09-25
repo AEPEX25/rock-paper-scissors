@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="stylesheet.css"
+      type="text/css"
+      charset="utf-8"
+    />
+
     <script
       src="https://kit.fontawesome.com/4033a95928.js"
       crossorigin="anonymous"
@@ -11,22 +18,22 @@
     <script src="app.js" defer></script>
     <title>Rock Papers and Scissors</title>
   </head>
-  <body>
+  <body class="flex">
     <h1>Rock, Paper or Scissors</h1>
-    <div class="players">
+    <div class="players flex">
       <div class="player">
         <div class="player-score">
           <p>PLAYER: <span class="p-score">0</span></p>
         </div>
-        <div class="choices-container">
-          <div class="choice" id="rock">
-            <i class="fa-regular fa-hand-back-fist fa-5x"></i>
+        <div class="player-choices-container flex">
+          <div class="player-choices" id="rock">
+            <i class="rock-icon"></i>
           </div>
-          <div class="choices" id="paper">
-            <i class="fa-regular fa-hand fa-5x"></i>
+          <div class="player-choices" id="paper">
+            <i class="paper-icon"></i>
           </div>
-          <div class="choices" id="scissors">
-            <i class="fa-regular fa-hand-scissors fa-5x"></i>
+          <div class="player-choices" id="scissors">
+            <i class="scissors-icon"></i>
           </div>
         </div>
       </div>
@@ -34,7 +41,7 @@
         <div class="computer-score">
           <p>COMPUTER: <span class="c-score">0</span></p>
         </div>
-        <div class="choices-container">
+        <div class="choices-container flex">
           <div class="choice" id="rock">
             <i class="fa-regular fa-hand-back-fist fa-5x"></i>
           </div>
@@ -47,7 +54,7 @@
         </div>
       </div>
     </div>
-    <div class="display-results">
+    <div class="display-results flex">
       <p class="results">Results</p>
     </div>
   </body>

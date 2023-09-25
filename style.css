@@ -60,21 +60,32 @@ h6 {
 #__next {
   isolation: isolate;
 }
+/************************ General CSS *******************************/
+
+@font-face {
+  font-family: "vcr_osd_monoregular";
+  src: url(assets/vcr_osd_mono_1.001-webfont.woff2) format("woff2"),
+    url(assets/vcr_osd_mono_1.001-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.flex {
+  display: flex;
+}
 
 /************************ CSS *******************************/
 
 body {
   height: 100vh;
-  display: flex;
-  gap: 15px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: gainsboro;
+  font-family: "vcr_osd_monoregular";
 }
 
 .players {
-  display: flex;
   gap: 80px;
   margin: 50px 0;
 }
@@ -82,19 +93,69 @@ body {
 .player,
 .computer {
   text-align: center;
-  display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .scores {
-  display: flex;
   flex-direction: row;
 }
 
-.choices-container {
-  display: flex;
+.player-score,
+.computer-score {
+  font-size: 20px;
+}
+
+.choices-container,
+.player-choices-container {
   flex-direction: row;
   gap: 30px;
   padding: 10px;
+}
+
+.rock-icon::before,
+.paper-icon::before,
+.scissors-icon::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font: var(--fa-font-regular);
+  font-size: 70px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  transition: all 1s;
+}
+
+.rock-icon::before {
+  content: "\f255";
+}
+
+.paper-icon::before {
+  content: "\f256";
+}
+
+.scissors-icon::before {
+  content: "\f257";
+}
+
+.rock-icon:hover,
+.paper-icon:hover,
+.scissors-icon:hover {
+  cursor: pointer;
+  color: red;
+  transform: scale(5);
+}
+
+.display-results {
+  width: 650px;
+  border: 6px solid white;
+  height: 80px;
+  padding: 15px;
+  background-color: black;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 13px 13px 8px 0px rgba(0, 0, 0, 0.1);
 }

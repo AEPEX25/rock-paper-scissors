@@ -12,6 +12,7 @@ const div_computerScore = document.querySelector(".computer-score");
 let spanPlayerScore = document.querySelector(".p-score");
 let spanComputerScore = document.querySelector(".c-score");
 let displayResult = document.querySelector(".results");
+const playerIconSelection = document.querySelector(".player-choices-container");
 
 ///// Scores /////
 
@@ -21,6 +22,8 @@ let computerScore = 0;
 ///// Choices /////
 
 const choices = ["rock", "paper", "scissors"];
+
+///// Mouseover animation /////
 
 ///// Computer Choice /////
 function getComputerChoice() {
@@ -63,13 +66,11 @@ function checkWinner(playerSelection, computerSelection) {
 function win() {
   playerScore += 1;
   spanPlayerScore.textContent = playerScore;
-  console.log(playerScore);
 }
 
 function lose() {
   computerScore += 1;
   spanComputerScore.textContent = computerScore;
-  console.log(computerScore);
 }
 
 ///// playRound /////
@@ -81,10 +82,10 @@ function playRound(playerSelection, computerSelection) {
     displayResult.textContent = "IT'S A TIE!!!";
   } else if (result === "player") {
     win();
-    displayResult.textContent = `YOU WIN THE ROUND!!! ${playerSelection} beats ${computerSelection} - Current score: Player ( ${playerScore} ) : Computer ( ${computerScore} )`;
+    displayResult.textContent = `YOU WIN THE ROUND!!! \n${playerSelection} beats ${computerSelection} - Current score: Player ( ${playerScore} ) : Computer ( ${computerScore} )`;
   } else if (result === "computer") {
     lose();
-    displayResult.textContent = `YOU LOSE THE ROUND!!! ${computerSelection} beats ${playerSelection} - Current score: Computer ( ${computerScore} ) : Player ( ${playerScore} )`;
+    displayResult.textContent = `YOU LOSE THE ROUND!!! \n${computerSelection} beats ${playerSelection} - Current score: Computer ( ${computerScore} ) : Player ( ${playerScore} )`;
   }
 }
 
