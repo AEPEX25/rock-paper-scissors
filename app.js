@@ -152,7 +152,7 @@ const playAgain = function () {
   computerScore = 0;
   spanPlayerScore.textContent = playerScore;
   spanComputerScore.textContent = computerScore;
-  displayResult.textContent = "Results";
+  displayResult.textContent = "New Game!!";
   playerIconContainer.classList.remove("disable-buttons");
   pcIconsContainer.classList.remove("disable-buttons");
 };
