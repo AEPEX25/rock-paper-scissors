@@ -106,11 +106,12 @@ body {
   font-size: 20px;
 }
 
-.choices-container,
+.computer-choices-container,
 .player-choices-container {
   flex-direction: row;
   gap: 30px;
   padding: 10px;
+  transition: all 1s;
 }
 
 .rock-icon::before,
@@ -144,11 +145,11 @@ body {
 .paper-icon:hover,
 .scissors-icon:hover {
   cursor: pointer;
-  color: red;
+  color: rgb(28, 196, 13);
 }
 
 .display-results {
-  width: 650px;
+  width: 900px;
   border: 6px solid white;
   height: 80px;
   padding: 15px;
@@ -170,11 +171,26 @@ body {
   margin-top: 30px;
   cursor: pointer;
   box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.1);
-  transition: all 1s;
+  transition: all 0.6s;
 }
 
 .play-again-btn:hover {
   background-color: white;
   color: black;
   border: 3px solid black;
+}
+
+.no-computer-choice {
+  transition: all 0.6s;
+  color: black !important ;
+}
+
+.computer-choice {
+  color: red;
+  transition: all 0.6s;
+}
+
+.disable-buttons {
+  pointer-events: none;
+  opacity: 0.4;
 }
